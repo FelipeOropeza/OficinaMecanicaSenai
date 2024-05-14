@@ -1,48 +1,76 @@
 create database db_oficina;
 use db_oficina;
 
-create table tbl_turma(
-id_tur int auto_increment primary key,
-nm_tur varchar(255) not null
+CREATE TABLE tbl_posicao (
+    id_pos INT AUTO_INCREMENT PRIMARY KEY,
+    nm_pos CHAR(1)
 );
 
-create table tbl_professor(
-id_prof int auto_increment primary key,
-nm_prof varchar(255) not null
+CREATE TABLE tbl_professor (
+    id_prof INT AUTO_INCREMENT PRIMARY KEY,
+    nm_prof VARCHAR(255) NOT NULL
 );
 
-create table tbl_armazem(
-id_arm int auto_increment primary key,
-desc_arm varchar(255) not null,
-qtd_arm int not null
+CREATE TABLE tbl_turma (
+    id_tur INT AUTO_INCREMENT PRIMARY KEY,
+    nm_tur VARCHAR(255) NOT NULL,
+    fk_prof INT,
+    FOREIGN KEY (fk_prof)
+        REFERENCES tbl_professor (id_prof)
 );
 
-create table tbl_meterial(
-id_mat int auto_increment primary key,
-desc_mat varchar(255) not null,
-uni_mat varchar(50) not null,
-fk_arm int,
-foreign key (fk_arm) references tbl_armazem (id_arm)
+CREATE TABLE tbl_armazem (
+    id_arm INT AUTO_INCREMENT PRIMARY KEY,
+    desc_arm VARCHAR(255) NOT NULL
 );
 
-create table tbl_profmatarm(
-tipo_mov boolean,
-data_mov date,
-qtd_mov int,
-fk_mat int, 
-fk_arm int,
-fk_prof int,
-foreign key (fk_mat) references tbl_meterial (id_mat),
-foreign key (fk_arm) references tbl_armazem (id_arm),
-foreign key (fk_prof) references tbl_professor (id_prof)
+CREATE TABLE tbl_material (
+    id_mat INT AUTO_INCREMENT PRIMARY KEY,
+    cod_sap VARCHAR(18) UNIQUE NOT NULL,
+    desc_mat VARCHAR(255) NOT NULL,
+    uni_mat VARCHAR(50) NOT NULL
 );
 
-create table tbl_mattur(
-data_res date,
-qtd_res int,
-fk_mat int,
-fk_tur int,
-foreign key (fk_mat) references tbl_meterial (id_mat),
-foreign key (fk_tur) references tbl_turma (id_tur)
+CREATE TABLE tbl_matposest (
+    id_est INT AUTO_INCREMENT,
+    data_est DATE,
+    qtd_est INT,
+    fk_mat INT,
+    fk_arm INT,
+    fk_pos INT,
+    FOREIGN KEY (fk_mat)
+        REFERENCES tbl_material (id_mat),
+    FOREIGN KEY (fk_arm)
+        REFERENCES tbl_armazem (id_arm),
+    FOREIGN KEY (fk_pos)
+        REFERENCES tbl_posicao (id_pos),
+	Primary key (id_est, fk_mat, fk_arm, fk_pos)
 );
 
+CREATE TABLE tbl_profmatarm (
+    tipo_mov BOOLEAN,
+    data_mov DATE,
+    qtd_mov INT,
+    fk_mat INT,
+    fk_est INT,
+    fk_prof INT,
+    FOREIGN KEY (fk_mat)
+        REFERENCES tbl_material (id_mat),
+    FOREIGN KEY (fk_est)
+        REFERENCES tbl_matposest (id_est),
+    FOREIGN KEY (fk_prof)
+        REFERENCES tbl_professor (id_prof),
+	primary key (fk_mat, fk_est, fk_prof)
+);
+
+CREATE TABLE tbl_mattur (
+    data_res DATE,
+    qtd_res INT,
+    fk_mat INT,
+    fk_tur INT,
+    FOREIGN KEY (fk_mat)
+        REFERENCES tbl_material (id_mat),
+    FOREIGN KEY (fk_tur)
+        REFERENCES tbl_turma (id_tur),
+    PRIMARY KEY (fk_mat , fk_tur)
+);
