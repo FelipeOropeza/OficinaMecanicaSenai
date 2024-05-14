@@ -3,23 +3,23 @@
 ## Sistema de Gestâo de Estoque para Oficina Mecânica
 ![BD_OFICINAMECANICA2](https://github.com/FelipeOropeza/OficinaMecanicaSenai/assets/151665002/94995890-dd20-48a1-ae43-7acf6fd3f125)
 
-Este sistema foi criado para facilitar a gestâo de estoque em pequenas empresas. Ele  centraliza informações sobre produtos, categorias, movimentações de estoque e  fornecedores, permitindo um controle de estoque eficiente e a manutenção de um  registro detalhado das operações.
+Este sistema foi criado para facilitar a gestâo de estoque na oficina mecâcina Senai Roberto Simonsen. Ele centraliza informações sobre produtos, categorias, movimentações de estoque e  fornecedores, permitindo um controle de estoque eficiente e a manutenção de um  registro detalhado das operações.
 
 ### Tabelas Implementadas
-#### produtos
+#### ARMAZÉM 
 Contém informações detalhadas sobre cada produto, como identificação única, 
 nome, descrição, preço de custo, preço de venda e quantidade em estoque.
-#### categorias
+#### MOVIMENTAÇÃO 
 Permite a classificação dos produtos em categorias, facilitando a organização e a 
 busca por itens similares ou relacionados.
-#### movimentacoes_estoque
+#### POSIÇÃO
 Registra todas as entradas e saídas do estoque, proporcionando uma visão clara 
 sobre a movimentação dos produtos e auxiliando na previsão de necessidades 
 futuras de compra.
-#### fornecedores
+#### MATERIAL
 Armazena dados sobre os fornecedores, incluindo nome, contato e a lista de produtos 
 que fornecem, facilitando o processo de reabastecimento e negociação.
-### Funcionalidades
+### PROFESSOR 
 - *Cadastro de Produtos*: Inclui a possibilidade de adicionar novos produtos ao 
 estoque, bem como atualizar informações de produtos existentes.
 - *Organização por Categorias*: Oferece a opção de categorizar produtos, o que 
@@ -29,6 +29,13 @@ saída de produtos, atualizando automaticamente a quantidade disponível em
 estoque.
 - *Gerenciamento de Fornecedores*: Centraliza as informações dos 
 fornecedores, tornando mais fácil o contato e a gestão das compras.
+
+#### TURMA
+
+
+
+
+
 
 ### Pré-requisitos
 
