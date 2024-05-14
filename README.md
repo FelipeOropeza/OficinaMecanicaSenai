@@ -1,9 +1,8 @@
 # Oficina Mecânica Senai
 
-![Oficinamec_v1 drawio](https://github.com/FelipeOropeza/OficinaMecanicaSenai/assets/101806766/afab2b73-44ef-44af-83cb-ec6113a0b8ed)
-
 ## Sistema de Gestâo de Estoque para Oficina Mecânica
--- ![banner](https://github.com/gvnff/)
+![BD_OFICINAMECANICA2](https://github.com/FelipeOropeza/OficinaMecanicaSenai/assets/151665002/94995890-dd20-48a1-ae43-7acf6fd3f125)
+
 Este sistema foi criado para facilitar a gestâo de estoque em pequenas empresas. Ele  centraliza informações sobre produtos, categorias, movimentações de estoque e  fornecedores, permitindo um controle de estoque eficiente e a manutenção de um  registro detalhado das operações.
 
 ### Tabelas Implementadas
