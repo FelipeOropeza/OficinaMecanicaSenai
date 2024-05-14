@@ -31,9 +31,10 @@ estoque.
 fornecedores, tornando mais fácil o contato e a gestão das compras.
 
 ### Pré-requisitos
-- Sistema de gerenciamento de banco de dados SQLite.
-- IDE recomendada: IntelliJ IDEA (ou outra IDE de sua preferência, como Visual 
-Studio Code, etc.).
+
+- IDE recomendade: Visual Studio Code
+- Sistema de gerenciamento de banco de dados MySQL Workbench.
+
 ### Configuração
 Clone o repositório:
 -- git clone https://github.com/gvnff/
