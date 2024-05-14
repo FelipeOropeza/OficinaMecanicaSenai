@@ -1,5 +1,6 @@
 # Oficina Mecânica Senai
 
+![Oficinamec_v1 drawio](https://github.com/FelipeOropeza/OficinaMecanicaSenai/assets/101806766/afab2b73-44ef-44af-83cb-ec6113a0b8ed)
 
 ## Sistema de Gestâo de Estoque para Oficina Mecânica
 -- ![banner](https://github.com/gvnff/)
