@@ -34,7 +34,7 @@ CREATE TABLE tbl_material (
 
 CREATE TABLE tbl_matposarm (
     id_est INT AUTO_INCREMENT,
-    data_est DATE,
+    data_est DATETIME,
     qtd_est INT,
     fk_mat INT,
     fk_arm INT,
@@ -51,7 +51,7 @@ CREATE TABLE tbl_matposarm (
 CREATE TABLE tbl_movimentacao (
     id_mov INT AUTO_INCREMENT,
     tipo_mov BOOLEAN,
-    data_mov DATE,
+    data_mov DATETIME,
     qtd_mov INT,
     fk_mat INT,
     fk_est INT,
