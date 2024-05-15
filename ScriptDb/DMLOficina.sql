@@ -56,25 +56,78 @@ call spInsertArmazem('Prateleira 1');
 call spInsertArmazem('Prateleira 2');
 
 delimiter $$
-create procedure spInsertMateiral(in vCodSap varchar(8), in vDesc varchar(255), in vUni varchar(50),
-in vQtd int, in vAr int, in vPos int)
+create procedure spInsertMateiral(in vCodSap varchar(8), in vDesc varchar(255), in vUni varchar(50))
 begin
 	if not exists (select cod_sap from tbl_material where cod_sap = vCodSap) then
 		insert into tbl_material values (default, vCodSap, vDesc, vUni);
+	else
+		select "Material já cadastrado" as "Erro"; 
     end if;
 end $$
 delimiter ;
 
---        if not exists (select id_pos from tbl_posicao where id_pos = vPos) then
--- 	 		if not exists (select id_arm from tbl_armazem where id_arm = vArm) then
--- 				insert into tbl_matposarm 
---                 values(default, now(), vQtd, (select id_mat from tbl_material where cod_sap = vCodSap), vArm, vPos);
---             else
--- 				select "Armazenamento não existe" as "Erro"; 
---             end if;
--- 		else
--- 			select "Posição não existe" as "Erro"; 
---        end if;
---    else
--- 		select "Material já cadastrado" as "Erro"; 
---     end if;
+call spInsertMateiral('123wqs23', 'Teste1', 'Metro');
+call spInsertMateiral('123w2s24', 'Teste2', 'Peça');
+call spInsertMateiral('123w3223', 'Teste3', 'Peça');
+call spInsertMateiral('1214qs53', 'Teste4', 'Metro');
+
+
+delimiter $$
+create procedure spInsertLocaliza(in vCodSap varchar(8), in vCodArm int, in vCodPos int ,in vQtd int)
+begin
+	set @idMat = (select id_mat from tbl_material where cod_sap = vCodSap);
+
+	if not exists (
+        select *
+        from tbl_matposarm
+        where fk_mat = @idMat
+        and fk_arm = vCodArm
+        and fk_pos = vCodPos
+    )then
+		insert into tbl_matposarm values(default, now(), vQtd, @idMat, vCodArm, vCodPos);
+	else
+		select "Opção não disponivel" as "Erro"; 
+    end if;
+end $$
+delimiter ;
+
+call spInsertLocaliza('123wqs23', 1, 1,30);
+call spInsertLocaliza('123wqs23', 1, 2,40);
+call spInsertLocaliza('123w2s24', 2, 3,20);
+call spInsertLocaliza('123w3223', 1, 1,60);
+call spInsertLocaliza('1214qs53', 1, 2,50);
+
+delimiter $$
+create procedure spInsertMovimentacao(in vTipoMov boolean, in vQtdMov int, in vCodSap varchar(8), in vEst int, in vProf int, in vTurma int)
+begin
+	set @idMat = (select id_mat from tbl_material where cod_sap = vCodSap);
+	
+    insert into tbl_movimentacao values (default, vTipoMov, now(), vQtdMov, @idMat, vEst, vProf, vTurma);
+end $$
+delimiter ;
+
+-- 0 = Entrada
+-- 1 = Saida
+call spInsertMovimentacao(0, 20, '123wqs23', 1, 1, 1);
+call spInsertMovimentacao(0, 20, '123wqs23', 2, 1, 1);
+call spInsertMovimentacao(1, 10, '123wqs23', 1, 1, 1);
+
+delimiter $$
+create trigger trgEntrada after insert on tbl_movimentacao
+for each row
+begin
+	if new.tipo_mov = 0 then
+		update tbl_matposarm set tbl_matposarm.qtd_est = tbl_matposarm.qtd_est + new.qtd_mov where tbl_matposarm.id_est = new.fk_est;
+    end if;
+end $$
+delimiter ;
+
+delimiter $$
+create trigger trgSaida after insert on tbl_movimentacao
+for each row
+begin
+	if new.tipo_mov = 1 then
+		update tbl_matposarm set tbl_matposarm.qtd_est = tbl_matposarm.qtd_est - new.qtd_mov where tbl_matposarm.id_est = new.fk_est;
+    end if;
+end $$
+delimiter ;
