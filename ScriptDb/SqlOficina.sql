@@ -49,6 +49,7 @@ CREATE TABLE tbl_matposarm (
 );
 
 CREATE TABLE tbl_movimentacao (
+    id_mov INT AUTO_INCREMENT,
     tipo_mov BOOLEAN,
     data_mov DATE,
     qtd_mov INT,
@@ -64,5 +65,5 @@ CREATE TABLE tbl_movimentacao (
         REFERENCES tbl_professor (id_prof),
     FOREIGN KEY (fk_tur)
         REFERENCES tbl_turma (id_tur),
-    PRIMARY KEY (fk_mat , fk_est , fk_prof , fk_tur)
+    PRIMARY KEY (id_mov , fk_mat , fk_est , fk_prof , fk_tur)
 );
