@@ -44,7 +44,7 @@ fornecedores, tornando mais fácil o contato e a gestão das compras.
 
 ### Configuração
 Clone o repositório:
--- git clone https://github.com/gvnff/
+-- git clone [https://github.com/gvnff/](https://github.com/FelipeOropeza/OficinaMecanicaSenai.git)
 ### Uso
 Este sistema fornece uma interface de linha de comando para gerenciar produtos, 
 categorias, movimentações de estoque e fornecedores. A seguir, você encontrará 
