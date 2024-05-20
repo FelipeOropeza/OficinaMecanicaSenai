@@ -1,8 +1,9 @@
 delimiter $$
-create procedure spInsertTurma(in vNome varchar(255))
+create procedure spInsertTurmaProf(in vNome varchar(255), in vSN varchar(7))
 begin
+	set @idProf = (select id_prof from tbl_professor where sn_prof = vSN);
 	if not exists (select nm_tur from tbl_turma where nm_tur = vNome) then 
-		insert into tbl_turma values (default, vNome, null);
+		insert into tbl_turma values (default, vNome, @idProf);
 	else
 		select "Turma já cadastrada" as "Erro"; 
     end if;
@@ -70,7 +71,6 @@ call spInsertMateiral('123wqs23', 'Teste1', 'Metro');
 call spInsertMateiral('123w2s24', 'Teste2', 'Peça');
 call spInsertMateiral('123w3223', 'Teste3', 'Peça');
 call spInsertMateiral('1214qs53', 'Teste4', 'Metro');
-
 
 delimiter $$
 create procedure spInsertLocaliza(in vCodSap varchar(8), in vCodArm int, in vCodPos int ,in vQtd int)
