@@ -28,33 +28,33 @@ delimiter ;
 call spInsertProfessor("José Carlos", "ewwewew");
 
 delimiter $$
-create procedure spInsertPosicao(in vNome char(1))
+create procedure spInsertEstoque(in vNome varchar(100), in vTipoEst boolean)
 begin
-	if not exists (select nm_pos from tbl_posicao where nm_pos = vNome) then
-		insert into tbl_posicao values (default, vNome);
+	if vTipoEst = 0 then
+		if not exists (select nm_pos from tbl_posicao where nm_pos = vNome) then
+			insert into tbl_posicao values (default, vNome);
+		else
+			select "Posição já cadastrada" as "Erro"; 
+		end if;
+    elseif vTipoEst = 1 then
+		if not exists (select desc_arm from tbl_armazem where desc_arm = vNome) then
+			insert into tbl_armazem values (default, vNome);
+		else
+			select "Armazenamento já cadastrado" as "Erro"; 
+		end if;
 	else
-		select "Posição já cadastrada" as "Erro"; 
+		select "A opção não existe" as "Erro"; 
     end if;
 end $$
 delimiter ;
 
-call spInsertPosicao('A');
-call spInsertPosicao('B');
-call spInsertPosicao('C');
-
-delimiter $$
-create procedure spInsertArmazem(in vNome varchar(255))
-begin
-	if not exists (select desc_arm from tbl_armazem where desc_arm = vNome) then
-		insert into tbl_armazem values (default, vNome);
-	else
-		select "Armazenamento já cadastrado" as "Erro"; 
-    end if;
-end $$
-delimiter ;
-
-call spInsertArmazem('Prateleira 1');
-call spInsertArmazem('Prateleira 2');
+-- 0 = Posicao
+-- 1 = Armazem
+call spInsertEstoque('D', 0);
+call spInsertEstoque('E', 0);
+call spInsertEstoque('F', 0);
+call spInsertEstoque('Prateleira 3', 1);
+call spInsertEstoque('Prateleira 4', 1);
 
 delimiter $$
 create procedure spInsertMateiral(in vCodSap varchar(8), in vDesc varchar(255), in vUni varchar(50))
