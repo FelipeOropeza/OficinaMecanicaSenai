@@ -19,22 +19,21 @@ futuras de compra.
 #### MATERIAL
 Armazena dados sobre os fornecedores, incluindo nome, contato e a lista de produtos 
 que fornecem, facilitando o processo de reabastecimento e negociação.
-### PROFESSOR 
-- *Cadastro de Produtos*: Inclui a possibilidade de adicionar novos produtos ao 
-estoque, bem como atualizar informações de produtos existentes.
-- *Organização por Categorias*: Oferece a opção de categorizar produtos, o que 
+### PROFESSOR  
+O Professor terá uma ou mais turmas para ministrar, sendo assim fazendo a solicitação de materias em nosso estoque.
+#### TURMA
+Será ministrada por um Professor no qual irá movimentar solicitações para a mesma em nosso estoque.  
+
+### Funcionalidades
+- *Cadastro de Professorres, turmas, materiais*: Inclui a possibilidade de adicionar novas informações ao 
+estoque, bem como atualizar informações existentes.
+- *Organização por Posições*: Oferece a opção de categorizar produtos, o que 
 simplifica a gestão e melhora a experiência do usuário.
 - *Monitoramento de Estoque*: Acompanha as movimentações de entrada e 
 saída de produtos, atualizando automaticamente a quantidade disponível em 
 estoque.
-- *Gerenciamento de Fornecedores*: Centraliza as informações dos 
+- *Gerenciamento de Materiais*: Centraliza as informações dos 
 fornecedores, tornando mais fácil o contato e a gestão das compras.
-
-#### TURMA
-
-
-
-
 
 
 ### Pré-requisitos
@@ -46,8 +45,8 @@ fornecedores, tornando mais fácil o contato e a gestão das compras.
 Clone o repositório:
 -- git clone [https://github.com/gvnff/](https://github.com/FelipeOropeza/OficinaMecanicaSenai.git)
 ### Uso
-Este sistema fornece uma interface de linha de comando para gerenciar produtos, 
-categorias, movimentações de estoque e fornecedores. A seguir, você encontrará 
+Este sistema fornece uma interface com formulários, tendo assim uma simplicidade na realização das taferas do sistema de estoque na Oficina Mecânica na escola Senai Roberto Simonsen.
+categorizando Materiais, movimentando estoque e mantendo uma organização. A seguir, você encontrará 
 exemplos detalhados de como utilizar cada funcionalidade.
 #### Adicionando um Novo Produto
 Para adicionar um novo produto, siga estas etapas:
