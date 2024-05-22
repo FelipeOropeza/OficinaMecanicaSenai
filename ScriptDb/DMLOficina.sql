@@ -10,9 +10,7 @@ begin
 end $$
 delimiter ;
 
-call spInsertTurma("Tornearia Mecânica");
-
-select * from tbl_turma;
+call spInsertTurmaProf("Mecatronica", "ewwewew");
 
 delimiter $$
 create procedure spInsertProfessor(in vNome varchar(255), in vSN varchar(7))
@@ -25,6 +23,7 @@ begin
 end $$
 delimiter ;
 
+call spInsertProfessor("Felipe Carvalho", "2323222");
 call spInsertProfessor("José Carlos", "ewwewew");
 
 delimiter $$
@@ -71,6 +70,7 @@ call spInsertMateiral('123wqs23', 'Teste1', 'Metro');
 call spInsertMateiral('123w2s24', 'Teste2', 'Peça');
 call spInsertMateiral('123w3223', 'Teste3', 'Peça');
 call spInsertMateiral('1214qs53', 'Teste4', 'Metro');
+
 
 delimiter $$
 create procedure spInsertLocaliza(in vCodSap varchar(8), in vCodArm int, in vCodPos int ,in vQtd int)
@@ -131,3 +131,17 @@ begin
     end if;
 end $$
 delimiter ;
+
+create view vwMatLocaliza as
+select
+	tbl_material.cod_sap,
+    tbl_material.desc_mat,
+    tbl_matposarm.qtd_est,
+    tbl_armazem.desc_arm,
+    tbl_posicao.nm_pos
+from tbl_material
+inner join tbl_matposarm on tbl_matposarm.fk_mat = tbl_material.id_mat
+inner join tbl_armazem on tbl_armazem.id_arm = tbl_matposarm.fk_arm
+inner join tbl_posicao on tbl_posicao.id_pos = tbl_matposarm.fk_pos;
+
+select * from vwMatLocaliza;
