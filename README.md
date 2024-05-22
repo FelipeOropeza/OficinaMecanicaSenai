@@ -37,71 +37,39 @@ fornecedores, tornando mais fácil o contato e a gestão das compras.
 
 
 ### Pré-requisitos
-
-- IDE recomendade: Visual Studio Code
+- IDE recomendade: Visual Studio.
 - Sistema de gerenciamento de banco de dados MySQL Workbench.
 
 ### Configuração
 Clone o repositório:
 -- git clone [https://github.com/gvnff/](https://github.com/FelipeOropeza/OficinaMecanicaSenai.git)
 ### Uso
-Este sistema fornece uma interface com formulários, tendo assim uma simplicidade na realização das taferas do sistema de estoque na Oficina Mecânica na escola Senai Roberto Simonsen.
-categorizando Materiais, movimentando estoque e mantendo uma organização. A seguir, você encontrará 
-exemplos detalhados de como utilizar cada funcionalidade.
-#### Adicionando um Novo Produto
-Para adicionar um novo produto, siga estas etapas:
-1. No menu principal, selecione a opção *[1] Produto.*
-2. No menu de produtos, selecione a opção *[3] Inserir.*
-3. Informe o nome do produto.
-4. O sistema solicitará as seguintes informações adicionais:
-- Descrição
-- Preço de custo
-- Preço de venda
-- Quantidade inicial em estoque
-- ID do fornecedor
-- ID da categoria
-- Marca
-- Data de validade (formato YYYY-MM-DD)
-- Lote
-5. Após fornecer todas as informações, o produto será adicionado ao sistema.
+Este sistema fornece uma interface com formulários pelo Visual Studio, tendo assim simplicidade na realização de taferas no sistema de estoque na Oficina Mecânica Senai Roberto Simonsen.
+categorizando Materiais, movimentando estoque e mantendo uma organização. 
+#### 
 
-### Categorizando um Produto
-Para associar um produto a uma categoria existente:
-1. No menu principal, selecione a opção *[1] Produto*.
-2. No menu de produtos, selecione a opção *[3] Inserir*.
-3. Informe o nome do produto e os demais detalhes solicitados.
-4. Quando for solicitado o "ID da categoria", informe o ID da categoria desejada.
-Para criar uma nova categoria:
-1. No menu principal, selecione a opção *[2] Categoria*.
-2. No menu de categorias, selecione a opção *[3] Inserir*.
-3. Informe o nome da nova categoria.
-4. A nova categoria estará disponível para associação aos produtos.
-### Registrando Movimentações de Estoque
-Para registrar uma nova entrada ou saída de estoque:
-1. No menu principal, selecione a opção *[4] Movimentação*.
-2. No menu de movimentações, selecione a opção *[3] Inserir*.
-3. Informe o ID do produto para o qual deseja registrar a movimentação.
-4. Informe o ID do usuário responsável pela movimentação.
-5. Informe a data da movimentação no formato YYYY-MM-DD.
-6. Informe a quantidade movimentada.
-7. Informe o tipo de movimentação (entrada ou saída).
-8. A movimentação será registrada, atualizando o estoque correspondente.
-### Gerenciando Fornecedores
-Para inserir um novo fornecedor:
-1. No menu principal, selecione a opção *[3] Fornecedor*.
-2. No menu de fornecedores, selecione a opção *[3] Inserir*.
-3. Informe o nome do fornecedor.
-4. Informe o endereço do fornecedor (ID do endereço).
-5. O novo fornecedor será adicionado ao sistema.
-Para atualizar informações de um fornecedor existente:
-1. No menu principal, selecione a opção *[3] Fornecedor*.
-2. No menu de fornecedores, selecione a opção *[2] Buscar*.
-3. Informe o ID do fornecedor que deseja atualizar.
-4. As informações atuais do fornecedor serão exibidas.
-5. Siga as instruções fornecidas pelo sistema para atualizar os campos 
-desejados.
-### Licença
-Este projeto é licenciado sob a Licença MIT License.
+1. 
+2. 
+3. 
+
+### 
+-----------------------------------:
+1.
+2. 
+3. 
+
+###
+---------------------:
+1. 
+2. 
+3. 
+
+### 
+
+1. 
+2. 
+3. 
+
 ### Autores
 - Seu Nome - Trabalho Inicial - SeuPerfilGitHub
 ### Contato
