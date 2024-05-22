@@ -98,19 +98,20 @@ call spInsertLocaliza('123w3223', 1, 1,60);
 call spInsertLocaliza('1214qs53', 1, 2,50);
 
 delimiter $$
-create procedure spInsertMovimentacao(in vTipoMov boolean, in vQtdMov int, in vCodSap varchar(8), in vEst int, in vProf int, in vTurma int)
+create procedure spInsertMovimentacao(in vTipoMov boolean, in vQtdMov int, in vCodSap varchar(8), in vPos int, in vArm int, in vProf int, in vTurma int)
 begin
-	set @idMat = (select id_mat from tbl_material where cod_sap = vCodSap);
-	
-    insert into tbl_movimentacao values (default, vTipoMov, now(), vQtdMov, @idMat, vEst, vProf, vTurma);
+	declare idMat int;
+    declare idEst int;
+	set idMat = (select id_mat from tbl_material where cod_sap = vCodSap);
+	set idEst = (select id_est from tbl_matposarm where fk_mat = idMat and fk_arm = vArm and fk_pos = vPos);
+    
+    insert into tbl_movimentacao values (default, vTipoMov, now(), vQtdMov, idMat, idEst, vProf, vTurma);
 end $$
 delimiter ;
 
 -- 0 = Entrada
 -- 1 = Saida
-call spInsertMovimentacao(0, 20, '123wqs23', 1, 1, 1);
-call spInsertMovimentacao(0, 20, '123wqs23', 2, 1, 1);
-call spInsertMovimentacao(1, 10, '123wqs23', 1, 1, 1);
+call spInsertMovimentacao(1, 50, '123wqs23', 2, 1, 2, 4);
 
 delimiter $$
 create trigger trgEntrada after insert on tbl_movimentacao
@@ -134,14 +135,53 @@ delimiter ;
 
 create view vwMatLocaliza as
 select
+	tbl_matposarm.id_est,
 	tbl_material.cod_sap,
     tbl_material.desc_mat,
     tbl_matposarm.qtd_est,
+    tbl_armazem.id_arm,
     tbl_armazem.desc_arm,
+    tbl_posicao.id_pos,
     tbl_posicao.nm_pos
 from tbl_material
 inner join tbl_matposarm on tbl_matposarm.fk_mat = tbl_material.id_mat
 inner join tbl_armazem on tbl_armazem.id_arm = tbl_matposarm.fk_arm
 inner join tbl_posicao on tbl_posicao.id_pos = tbl_matposarm.fk_pos;
 
-select * from vwMatLocaliza;
+select cod_sap, desc_arm, nm_pos, qtd_est from vwMatLocaliza where desc_mat like '%teste1%';
+select distinct desc_arm from vwMatLocaliza where desc_mat like '%mm%' and cod_sap = '93821';
+select distinct id_pos, nm_pos from vwMatLocaliza where desc_mat like '%mm%' and cod_sap = '93821';
+
+select cod_sap, desc_arm, nm_pos, qtd_est from vwMatLocaliza where desc_mat like '%mm%';
+
+select cod_sap, desc_mat, desc_arm, nm_pos from vwMatLocaliza;
+
+select * from vwmatlocaliza where cod_sap = '123wqs23' and id_arm = 1 and id_pos = 3;
+
+create view vwProfTurma as
+select
+	tbl_professor.id_prof,
+	tbl_professor.nm_prof,
+    tbl_professor.sn_prof,
+    tbl_turma.id_tur,
+    tbl_turma.nm_tur
+from tbl_turma
+inner join tbl_professor on tbl_professor.id_prof = tbl_turma.fk_prof;
+
+select *, count(id_prof) as "Qtd" from vwProfTurma group by id_prof;
+select id_tur, nm_tur from vwProfTurma where sn_prof = "1232113";
+
+create view vwMovimenta as
+select
+	if(tbl_movimentacao.tipo_mov = 0, "Entrada", "Saida") as "Movimentação",
+    tbl_material.cod_sap,
+    tbl_professor.nm_prof,
+    tbl_turma.nm_tur,
+    tbl_movimentacao.qtd_mov,
+    tbl_movimentacao.data_mov
+from tbl_movimentacao
+inner join tbl_professor on tbl_professor.id_prof = tbl_movimentacao.fk_prof
+inner join tbl_turma on tbl_turma.id_tur = tbl_movimentacao.fk_tur
+inner join tbl_material on tbl_material.id_mat = tbl_movimentacao.fk_mat;
+
+select * from vwMovimenta order by data_mov desc;
