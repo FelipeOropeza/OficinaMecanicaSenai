@@ -26,14 +26,12 @@ Será ministrada por um Professor no qual irá movimentar solicitações para a 
 
 ### Funcionalidades
 - *Cadastro de Professorres, turmas, materiais*: Inclui a possibilidade de adicionar novas informações ao 
-estoque, bem como atualizar informações existentes.
+estoque.
 - *Organização por Posições*: Oferece a opção de categorizar produtos, o que 
 simplifica a gestão e melhora a experiência do usuário.
 - *Monitoramento de Estoque*: Acompanha as movimentações de entrada e 
 saída de produtos, atualizando automaticamente a quantidade disponível em 
 estoque.
-- *Gerenciamento de Materiais*: Centraliza as informações dos 
-fornecedores, tornando mais fácil o contato e a gestão das compras.
 
 
 ### Pré-requisitos
