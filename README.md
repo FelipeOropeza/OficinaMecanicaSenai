@@ -46,35 +46,3 @@ Clone o repositório:
 ### Uso
 Este sistema fornece uma interface com formulários pelo Visual Studio, tendo assim simplicidade na realização de taferas no sistema de estoque na Oficina Mecânica Senai Roberto Simonsen.
 categorizando Materiais, movimentando estoque e mantendo uma organização. 
-#### 
-
-1. 
-2. 
-3. 
-
-### 
------------------------------------:
-1.
-2. 
-3. 
-
-###
----------------------:
-1. 
-2. 
-3. 
-
-### 
-
-1. 
-2. 
-3. 
-
-### Autores
-- Seu Nome - Trabalho Inicial - SeuPerfilGitHub
-### Contato
-Para qualquer dúvida ou suporte técnico, entre em contato através de:
-- GitHub Issues
-- LinkedIn
-
-
