@@ -42,7 +42,7 @@ fornecedores, tornando mais fácil o contato e a gestão das compras.
 
 ### Configuração
 Clone o repositório:
--- git clone [https://github.com/gvnff/](https://github.com/FelipeOropeza/OficinaMecanicaSenai.git)
+-- git clone [https://github.com/FelipeOropeza/OficinaMecanicaSenai.git](https://github.com/FelipeOropeza/OficinaMecanicaSenai.git)
 ### Uso
 Este sistema fornece uma interface com formulários pelo Visual Studio, tendo assim simplicidade na realização de taferas no sistema de estoque na Oficina Mecânica Senai Roberto Simonsen.
 categorizando Materiais, movimentando estoque e mantendo uma organização. 
