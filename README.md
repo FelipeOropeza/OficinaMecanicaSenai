@@ -43,4 +43,11 @@ Clone o repositório:
 -- git clone [https://github.com/FelipeOropeza/OficinaMecanicaSenai.git](https://github.com/FelipeOropeza/OficinaMecanicaSenai.git)
 ### Uso
 Este sistema fornece uma interface com formulários pelo Visual Studio, tendo assim simplicidade na realização de taferas no sistema de estoque na Oficina Mecânica Senai Roberto Simonsen.
-categorizando Materiais, movimentando estoque e mantendo uma organização. 
+categorizando Materiais, movimentando estoque e mantendo uma organização.
+
+
+
+
+
+https://github.com/FelipeOropeza/OficinaMecanicaSenai/assets/101806766/cd44f970-a7f1-445a-95ff-a51d1e152ae9
+
